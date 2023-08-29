@@ -8,6 +8,8 @@ from linebot.exceptions import (
 )
 
 from linebot.models import *
+from database import db_session,init_db
+from models.user import Users
 
 app = Flask(__name__)
 
@@ -77,4 +79,5 @@ def handle_message(event):
         event.reply_token, TextSendMessage(text='Hi! Welcome to LSTORE.'))
     
 if __name__ == "__main__":
+    init_db()
     app.run()
